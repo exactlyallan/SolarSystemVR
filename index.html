@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Solar System with A-Frame</title>
+  <meta name="author" content="exactly.allan@gmail.com">
+  <meta name="description" content="Solar System A-Frame">
+  <link rel="stylesheet" type="text/css" href="./css/app.css">
+  <script src="https://aframe.io/releases/0.7.0/aframe.min.js"></script>
+  <script src="./js/app.js"></script>
+</head>
+<body>
+
+	<a-scene>
+	  <!-- textures from https://www.solarsystemscope.com/textures thanks! -->
+	  <a-assets>
+	  	<img id="earthclouds-texture" src="./img/2k_earth_clouds.jpg">
+	  	<img id="earthday-texture" src="./img/2k_earth_daymap.jpg">
+	  	<img id="earthnormal-texture" src="./img/2k_earth_normal_map.tif">
+	  	<img id="earthspec-texture" src="./img/2k_earth_specular_map.tif">
+	  	<img id="moon-texture" src="./img/2k_moon.jpg">
+
+	  	<img id="sun-texture" src="./img/2k_sun.jpg">
+	  	<img id="mercury-texture" src="./img/2k_mercury.jpg">
+	  	<img id="venus-texture" src="./img/2k_venus_atmosphere.jpg">
+	  	<img id="mars-texture" src="./img/2k_mars.jpg">
+	  	<img id="jupiter-texture" src="./img/2k_jupiter.jpg">
+	  	<img id="saturn-texture" src="./img/2k_saturn.jpg">
+	  	<img id="saturnring-texture" src="./img/2k_saturnring.png">
+	  	<img id="uranus-texture" src="./img/2k_uranus.jpg">
+	  	<img id="neptune-texture" src="./img/2k_neptune.jpg">
+
+	    <img id="space-texture" src="./img/2k_stars_milky_way.jpg">
+	  </a-assets>
+	  
+	  <a-camera position="0 50 0" rotation="0 45 0" look-controls wasd-controls></a-camera>
+	  
+
+	  <a-sky color="#6EBAA7" src="#space-texture"></a-sky>
+	  <a-entity light="type: point; color: #FFF; intensity: 1; distance: 500; decay: 2" position="0 10 0"></a-entity>
+
+	  <a-entity id="solar-system">
+	
+	  		  <a-entity id="sun" geometry="primitive: sphere" position="0 0 0" scale="2 2 2" rotation="0 0 0" material="src: #sun-texture; side: front">
+	  		  	  <a-animation attribute="rotation"
+				               dur="10000"
+				               fill="forwards"
+				               to="0 360 0"
+				               repeat="indefinite"
+				               easing="linear"></a-animation>
+	  		  </a-entity>
+
+
+	  		  <a-entity id="mercury" geometry="primitive: sphere" position="10 0 0" scale="1 1 1" rotation="0 0 0" material="src: #mercury-texture">
+	  		  	  <a-animation attribute="rotation"
+				               dur="10000"
+				               fill="forwards"
+				               to="0 360 0"
+				               repeat="indefinite"
+				               easing="linear"></a-animation>
+	  		  </a-entity>
+
+	  		  <a-entity id="venus" geometry="primitive: sphere" position="20 0 0" scale="1 1 1" rotation="0 0 0" material="src: #venus-texture">
+	  		  	  <a-animation attribute="rotation"
+				               dur="10000"
+				               fill="forwards"
+				               to="0 360 0"
+				               repeat="indefinite"
+				               easing="linear"></a-animation>
+	  		  </a-entity>
+
+	  		  <a-entity id="earth" position="30 0 0">
+	  		  	<a-animation attribute="rotation"
+				               dur="10000"
+				               fill="forwards"
+				               to="0 360 0"
+				               repeat="indefinite"
+				               easing="linear"></a-animation>
+
+	  		  	<a-entity id="earth-day" geometry="primitive: sphere" position="0 0 0" scale="1 1 1" rotation="0 0 0" material="src: #earthday-texture"></a-entity>
+	  		  	<a-entity id="earth-clouds" geometry="primitive: sphere" position="0 0 0" scale="1.1 1.1 1.1" rotation="0 0 0" material="src: #earthclouds-texture; side: double; color: #EF2D5E; transparent: true; opacity: 0.5"></a-entity>
+
+				<a-entity id="moon" geometry="primitive: sphere" position="10 0 10" scale="1 1 1" rotation="0 0 0" material="src: #moon-texture">
+				    <a-animation attribute="rotation" dur="10000" fill="forwards" to="0 360 0" repeat="indefinite" easing="linear"></a-animation>
+				</a-entity>
+
+	  		  </a-entity>
+
+	  		  <a-entity id="mars" geometry="primitive: sphere" position="40 0 0" scale="1 1 1" rotation="0 0 0" material="src: #mars-texture">
+	  		  	  <a-animation attribute="rotation"
+				               dur="10000"
+				               fill="forwards"
+				               to="0 360 0"
+				               repeat="indefinite"
+				               easing="linear"></a-animation>
+	  		  </a-entity>
+
+	  		  <a-entity id="jupiter" geometry="primitive: sphere" position="50 0 0" scale="1 1 1" rotation="0 0 0" material="src: #jupiter-texture">
+	  		  	  <a-animation attribute="rotation"
+				               dur="10000"
+				               fill="forwards"
+				               to="0 360 0"
+				               repeat="indefinite"
+				               easing="linear"></a-animation>
+	  		  </a-entity>
+
+
+	  		  <a-entity id="saturn" geometry="primitive: sphere" position="60 0 0" scale="1 1 1" rotation="0 0 0" material="src: #saturn-texture">
+	  		  	  <a-animation attribute="rotation"
+				               dur="10000"
+				               fill="forwards"
+				               to="0 360 0"
+				               repeat="indefinite"
+				               easing="linear"></a-animation>
+	  		  	<a-ring radius-inner="1" rotation="90 0 0" radius-outer="2" material="src: #saturnring-texture; side: double;"></a-ring>
+	  		  </a-entity>
+
+	  		  <a-entity id="uranus" geometry="primitive: sphere" position="70 0 0" scale="1 1 1" rotation="0 0 0" material="src: #uranus-texture">
+	  		  	  <a-animation attribute="rotation"
+				               dur="10000"
+				               fill="forwards"
+				               to="0 360 0"
+				               repeat="indefinite"
+				               easing="linear"></a-animation>
+	  		  </a-entity>
+
+	  		  <a-entity id="neptune" geometry="primitive: sphere" position="80 0 0" scale="1 1 1" rotation="0 0 0" material="src: #neptune-texture">
+	  		  	  <a-animation attribute="rotation"
+				               dur="10000"
+				               fill="forwards"
+				               to="0 360 0"
+				               repeat="indefinite"
+				               easing="linear"></a-animation>
+	  		  </a-entity>
+	  		  
+	  </a-entity>
+
+	</a-scene>
+
+</body>
+</html>
